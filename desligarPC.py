@@ -4,81 +4,76 @@ from tkinter import *
 import tkinter as tk
 
 def main():
-    
-    #Janela
-    janela = Tk()
-    
-    #titulo da janela
-    janela.title("Programar Desligamento")
+    win = Tk()
 
-    #texto na janela
-    lb = Label(janela, text="BEM VINDO\n\n\n O que deseja fazer?")
-    lb.place(x=150, y=30)
+    #Window informations
+    win.title("AutoPC")
+    win.geometry("400x215+50+50")
 
-    #Botao Desligar
-    btd = Button(janela, width=10, text="Programar\ndesligamento", command=desligar)
-    btd.place(x=20, y=200)
+    #Texts
+    lb = Label(win, text="Welcome to AutoPC\n\n\n\nWhat you want to do?")
+    lb.place(x=140, y=30)
 
-    #Icone Janela
-    #janela.iconbitmap('icon.ico')
-    janela.iconphoto(True, tk.PhotoImage(file='icon.png'))
+    xz = Label(win, text="&/xZ")
+    xz.place(x=350, y=193)
 
-    #Botao Cancelar
-    btc = Button(janela, width=10, text="Cancelar\ndesligamento", command=cancelar)
-    btc.place(x=160, y=200)
+    #icons
+    #janela.iconbitmap('icon.ico') -- This do not work for all windows so...
+    win.iconphoto(True, tk.PhotoImage(file='icon.png'))
 
-    #Botao Fechar
-    btf = Button(janela, width=10, text="Fechar\nprograma", command=janela.destroy)
-    btf.place(x=300, y=200)
+    #buttons
+    btc = Button(win, width=10, text="Cancel\nShutdown", command=cancel)
+    btc.place(x=160, y=150)
 
-    #Tamanho da janela
-    janela.geometry("400x250+100+100")
+    btf = Button(win, width=10, text="Close\nAutoPC", command=win.destroy)
+    btf.place(x=300, y=150)
 
-    janela.mainloop()
+    btd = Button(win, width=10, text="Auto\nShutdown", command=shutdown)
+    btd.place(x=20, y=150)
 
-def desligar():
-    #Precisa estar dentro para que encontre o "janela"
+    win.mainloop()
+
+def shutdown():
+    #It need to be in "shutdown" cause it need to find "win"
     def ok():
         t = int(ed.get())
         t = str(t*60)
         cmd = 'shutdown -s -f -t ' + (t)
-        comando(cmd)
-        janela.destroy()
+        comandcmd(cmd)
+        win.destroy()
         
-    janela = Tk()
+    win = Tk()
+    win.title("AutoPC")
     
-    janela.title("Programar Desligamento")
+    texto = Label(win, text="Shutdown\n\nHow many minutes to shut down?")
+    texto.place(x=120, y=15)
     
-    texto = Label(janela, text="Desligar\n\nEm quantos minutos voce deseja desligar sua maquina?")
-    texto.place(x=50, y=30)
+    win.geometry("425x150+100+100")
     
-    janela.geometry("425x150+100+100")
-    
-    ed = Entry(janela)
-    ed.place(x=130, y=80)
+    ed = Entry(win)
+    ed.place(x=150, y=80)
     ed.focus_force()
 
-    bto = Button(janela, width=10, text="Ok", command=ok)
+    bto = Button(win, width=10, text="Confirm", command=ok)
     bto.place(x=100, y=120)
 
-    btf = Button(janela, width=10, text="Fechar", command=janela.destroy)
+    btf = Button(win, width=10, text="Close Tab", command=win.destroy)
     btf.place(x=250, y=120)
 
-def fechar():
-    fechar.destroy()
+def cancel():
+    comandcmd('shutdown -a')
     
-def cancelar():
-    comando('shutdown -a')
+    win = Tk()    
+    win.title("AutoPC")
+    win.geometry("350x90+100+100")
     
-    janela = Tk()    
-    janela.title("Programar Desligamento")    
-    texto = Label(janela, text="O desligamento automatico da sua maquina foi cancelado")
-    texto.place(x=50, y=30)    
-    janela.geometry("425x110+100+100")
-    btf = Button(janela, width=10, text="Ok", command=janela.destroy)
-    btf.place(x=170, y=80)
+    texto = Label(win, text="The auto shutdown has been canceled.")
+    texto.place(x=70, y=20)
 
-def comando(cmd):
+    btf = Button(win, width=10, text="Ok", command=win.destroy)
+    btf.place(x=135, y=50)
+
+def comandcmd(cmd):
     os.system(cmd)
 
 
