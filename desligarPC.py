@@ -15,15 +15,15 @@ def main():
     lb.place(x=150, y=30)
 
     #Botao Desligar
-    btd = Button(janela, width=10, text="Desligar", command=desligar)
+    btd = Button(janela, width=10, text="Programar\ndesligamento", command=desligar)
     btd.place(x=20, y=200)
 
     #Botao Cancelar
-    btc = Button(janela, width=10, text="Cancelar", command=cancelar)
+    btc = Button(janela, width=10, text="Cancelar\ndesligamento", command=cancelar)
     btc.place(x=160, y=200)
 
     #Botao Fechar
-    btf = Button(janela, width=10, text="Fechar", command=janela.destroy)
+    btf = Button(janela, width=10, text="Fechar\nprograma", command=janela.destroy)
     btf.place(x=300, y=200)
 
     #Tamanho da janela
@@ -64,6 +64,14 @@ def fechar():
     
 def cancelar():
     comando('shutdown -a')
+    
+    janela = Tk()    
+    janela.title("Programar Desligamento")    
+    texto = Label(janela, text="O desligamento automatico da sua maquina foi cancelado")
+    texto.place(x=50, y=30)    
+    janela.geometry("425x110+100+100")
+    btf = Button(janela, width=10, text="Ok", command=janela.destroy)
+    btf.place(x=170, y=80)
 
 def comando(cmd):
     os.system(cmd)
