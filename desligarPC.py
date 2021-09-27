@@ -32,6 +32,7 @@ def main():
     janela.mainloop()
 
 def desligar():
+    #Precisa estar dentro para que encontre o "janela"
     def ok():
         t = int(ed.get())
         t = str(t*60)
