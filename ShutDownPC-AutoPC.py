@@ -30,30 +30,7 @@ def main():
     btd.place(x=20, y=150)
 
     win.mainloop()
-
-def backup():
-    win1 = Tk()
-
-    #Window informations
-    win1.title("AutoPC")
-    win1.geometry("400x215+50+50")
-
-    #Texts
-    lb = Label(win1, text="Welcome to AutoPC\n\n\n\nWhat you want to do?")
-    lb.place(x=140, y=30)
-
-    #buttons
-    btc = Button(win1, width=10, text="Cancel\nShutdown", command=cancel)
-    btc.place(x=160, y=150)
-
-    btf = Button(win1, width=10, text="Close\nAutoPC", command=win1.destroy)
-    btf.place(x=300, y=150)
-
-    btd = Button(win1, width=10, text="Auto\nShutdown", command=shutdown)
-    btd.place(x=20, y=150)
-
-    win1.mainloop()
-    
+   
 def shutdown():
     #It need to be in "shutdown" cause it need to find "win"
     def ok():
