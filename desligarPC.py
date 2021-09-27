@@ -1,6 +1,7 @@
 #&/xZ
 import os
 from tkinter import *
+import tkinter as tk
 
 def main():
     
@@ -17,6 +18,10 @@ def main():
     #Botao Desligar
     btd = Button(janela, width=10, text="Programar\ndesligamento", command=desligar)
     btd.place(x=20, y=200)
+
+    #Icone Janela
+    #janela.iconbitmap('icon.ico')
+    janela.iconphoto(True, tk.PhotoImage(file='icon.png'))
 
     #Botao Cancelar
     btc = Button(janela, width=10, text="Cancelar\ndesligamento", command=cancelar)
