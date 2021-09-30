@@ -13,20 +13,22 @@ def main():
 
     #Window informations
     win.title("AutoPC")
-    win.geometry("400x215+50+50")
+    win.geometry("400x215")
+    canvas = tk.Canvas(win, height=1000, width=1000, bg="#4f4f4f")
+    canvas.pack()
 
     #Texts
-    lb = Label(win, text="Welcome to AutoPC\n\n\n\nWhat you want to do?")
+    lb = Label(win, text="Welcome to AutoPC\n\n\n\nWhat you want to do?", bg="#4f4f4f", fg="#eee")
     lb.place(x=140, y=30)
 
     #buttons
-    btc = Button(win, width=10, text="Cancel\nShutdown", command=cancel)
+    btc = Button(win, width=10, text="Cancel\nShutdown", command=cancel, bg="#707070", fg="#eee")
     btc.place(x=160, y=150)
 
-    btf = Button(win, width=10, text="Close\nAutoPC", command=win.destroy)
+    btf = Button(win, width=10, text="Close\nAutoPC", command=win.destroy, bg="#707070", fg="#eee")
     btf.place(x=300, y=150)
 
-    btd = Button(win, width=10, text="Auto\nShutdown", command=shutdown)
+    btd = Button(win, width=10, text="Auto\nShutdown", command=shutdown, bg="#707070", fg="#eee")
     btd.place(x=20, y=150)
 
     win.mainloop()
@@ -42,20 +44,23 @@ def shutdown():
         
     wins = Tk()
     wins.title("AutoPC")
+
+    canvas = tk.Canvas(wins, height=1000, width=1000, bg="#4f4f4f")
+    canvas.pack()
     
-    texto = Label(wins, text="Shutdown\n\nHow many minutes to shut down?")
+    texto = Label(wins, text="Shutdown\n\nHow many minutes to shut down?", bg="#4f4f4f",  fg="#eee")
     texto.place(x=120, y=15)
     
     wins.geometry("425x150+100+100")
     
-    ed = Entry(wins)
+    ed = Entry(wins,bg="#707070", fg="#eee")
     ed.place(x=150, y=80)
     ed.focus_force()
 
-    bto = Button(wins, width=10, text="Confirm", command=ok)
+    bto = Button(wins, width=10, text="Confirm", command=ok, bg="#707070", fg="#eee")
     bto.place(x=100, y=120)
 
-    btf = Button(wins, width=10, text="Close Tab", command=wins.destroy)
+    btf = Button(wins, width=10, text="Close Tab", command=wins.destroy, bg="#707070", fg="#eee")
     btf.place(x=250, y=120)
 
 def cancel():
@@ -64,11 +69,14 @@ def cancel():
     winc = Tk()    
     winc.title("AutoPC")
     winc.geometry("350x90+100+100")
+
+    canvas = tk.Canvas(winc, height=1000, width=1000, bg="#4f4f4f")
+    canvas.pack()
     
-    texto = Label(winc, text="The auto shutdown has been canceled.")
+    texto = Label(winc, text="The auto shutdown has been canceled.", bg="#4f4f4f", fg="#eee")
     texto.place(x=70, y=20)
 
-    btf = Button(winc, width=10, text="Ok", command=winc.destroy)
+    btf = Button(winc, width=10, text="Ok", command=winc.destroy, bg="#707070", fg="#eee")
     btf.place(x=135, y=50)
 
 def comandcmd(cmd):
